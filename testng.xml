@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="WebApplicationTestSuite">
+
+    <test name="WebApplicationTestCase">
+
+        <classes>
+            <class name="Runner.TestRunner"/>
+        </classes>
+    </test>
+
+</suite>
