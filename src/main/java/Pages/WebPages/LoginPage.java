@@ -30,4 +30,10 @@ public class LoginPage extends WebConnectionUtilities {
         driver.get(String.valueOf(prop.getProperty("pageurl")));
     }
 
+    public void EnterUserName(){
+        if(Username.isDisplayed()){
+            Username.sendKeys("");
+        }
+    }
+
 }
