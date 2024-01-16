@@ -3,7 +3,8 @@
 <suite name="WebApplicationTestSuite">
 
     <test name="WebApplicationTestCase">
-
+<!--        <parameter name="browserType" value="web" />-->
+        <parameter name="browserType" value="web" />
         <classes>
             <class name="Runner.TestRunner"/>
         </classes>

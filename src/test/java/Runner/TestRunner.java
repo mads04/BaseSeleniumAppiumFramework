@@ -1,8 +1,10 @@
 package Runner;
 
+import Utilities.WebConnectionUtilities;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.TestNGCucumberRunner;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 import static Pages.WebPages.LoginPage.driver;
@@ -16,8 +18,8 @@ import static Pages.WebPages.LoginPage.driver;
         }
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
-    // This class will run your Cucumber tests with TestNG
 
+    public static String browsertype;
 
     @BeforeClass(alwaysRun = true)
     public void setUpClass() {
@@ -26,9 +28,20 @@ public class TestRunner extends AbstractTestNGCucumberTests {
     }
 
 
+    @BeforeClass
+    @Parameters({"browserType"})
+    public void setUp(String browserType) {
+        browsertype = browserType;
+        System.out.println("Test Suite started successfully");
+    }
+
     @AfterSuite
     public void AfterSuiteMethod() {
         System.out.println("Test Suite ran successfully");
-        driver.quit();
+        try {
+            driver.quit();
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 }
